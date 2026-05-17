@@ -40,28 +40,9 @@ Sign up for a free account at [themoviedb.org](https://www.themoviedb.org/signup
 
 It's free. Takes about 2 minutes.
 
-### 2. Deploy to GitHub Pages
+### 2. Add Your API Key
 
-```bash
-# Clone or fork this repo
-git clone https://github.com/your-username/the-marquee.git
-cd the-marquee
-
-# That's it — it's a single HTML file
-```
-
-Then in your repo:
-
-1. Go to **Settings → Pages**
-2. Set source to **Deploy from a branch**
-3. Select **main** branch, **/ (root)**
-4. Hit **Save**
-
-Your site will be live at `https://your-username.github.io/the-marquee`
-
-### 3. Add Your API Key
-
-Open the app, hit the **⚙️** button in the bottom right, paste your TMDB API key and save. Done.
+Open the website, hit the **⚙️** button in the bottom right, paste your TMDB API key and save. Done.
 
 ---
 
