@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>The Marquee — Movie Lookup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Special+Elite&family=Lato:wght@300;400;700&family=Inter:wght@400;500;700&family=Source+Serif+4:wght@400;600&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -128,7 +128,7 @@ body {
   width: 100%;
   padding: 18px 56px 18px 24px;
   font-family: 'Special Elite', cursive;
-  font-size: 1.1rem;
+  font-size: 16px; /* never below 16px — prevents iOS Safari zoom */
   background: var(--input-bg);
   color: var(--text);
   border: 2px solid var(--border);
@@ -136,6 +136,8 @@ body {
   outline: none;
   box-shadow: 4px 4px 0 var(--shadow);
   transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-user-select: text;
+  user-select: text;
 }
 .search-input:focus {
   border-color: var(--accent);
@@ -731,8 +733,11 @@ body {
   border: 1.5px solid var(--border);
   border-radius: 4px;
   font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
+  font-size: 16px; /* never below 16px — prevents iOS Safari zoom */
   outline: none;
+  /* allow paste and all input actions */
+  -webkit-user-select: text;
+  user-select: text;
 }
 .setting-input:focus { border-color: var(--accent); }
 
@@ -818,10 +823,75 @@ body {
 @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
 
 @media (max-width: 600px) {
+  /* Header */
+  .marquee-header { padding: 14px 16px 10px; }
+  .bulb { width: 8px; height: 8px; }
+  .bulb-row { gap: 10px; }
+
+  /* Search page */
+  #search-page { padding: 32px 16px 80px; }
+  .search-wrap { max-width: 100%; }
+  .search-input { padding: 16px 48px 16px 16px; }
+  .autocomplete { max-height: 60vh; }
+  .ac-item { padding: 10px 12px; gap: 10px; }
+
+  /* Detail hero */
   .detail-hero { flex-direction: column; align-items: center; }
-  .detail-meta { padding-top: 0; text-align: center; }
-  .detail-pills, .ratings-row { justify-content: center; }
-  .detail-poster, .detail-poster-placeholder { width: 130px; margin-top: -60px; }
+  .detail-meta { padding-top: 0; text-align: center; width: 100%; }
+  .detail-pills, .ratings-row, .hero-crew-row { justify-content: center; }
+  .detail-poster, .detail-poster-placeholder { width: 120px; margin-top: -50px; }
+  .detail-title { font-size: 1.6rem; }
+  .detail-content { padding: 0 16px 80px; }
+
+  /* Quick facts — 2 col on mobile */
+  .quickfacts { flex-direction: row; flex-wrap: wrap; }
+  .qf-item { flex: 1 1 calc(50% - 1px); border-right: none; border-bottom: 1.5px solid var(--border); min-width: 0; }
+  .qf-item:nth-child(odd) { border-right: 1.5px solid var(--border); }
+  .qf-item:nth-last-child(-n+2):nth-child(odd),
+  .qf-item:last-child { border-bottom: none; }
+  .qf-value { font-size: 1rem; }
+
+  /* Cast strip — smaller cards */
+  .cast-card { width: 88px; }
+  .cast-photo, .cast-photo-placeholder { width: 88px; height: 120px; }
+
+  /* Crew grid — single column */
+  .crew-grid { grid-template-columns: 1fr; }
+
+  /* Stats grid — 1 col */
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Similar — 3 col */
+  .similar-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+  /* Trailers — single col */
+  .trailers-grid { grid-template-columns: 1fr; }
+
+  /* Settings panel — full height safe area */
+  .settings-panel {
+    padding: 24px 20px 40px;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .settings-panel { padding-bottom: max(40px, env(safe-area-inset-bottom)); }
+  .theme-swatch { padding: 8px 12px; font-size: 0.78rem; }
+
+  /* Backdrop shorter on mobile */
+  .backdrop-wrap { height: 220px; }
+
+  /* Section titles smaller */
+  .section-title { font-size: 1.1rem; }
+  .section { margin-top: 32px; }
+
+  /* Back button more tappable */
+  .back-btn { padding: 10px 16px; font-size: 0.9rem; }
+
+  /* Settings button — bigger tap target */
+  .settings-btn { width: 52px; height: 52px; bottom: 20px; right: 16px; }
+
+  /* Toast — full width on mobile */
+  .toast { left: 16px; right: 16px; bottom: 80px; text-align: center; }
 }
 </style>
 </head>
