@@ -4,7 +4,7 @@
 
 **A cinematic movie lookup app. Search any film, get the full picture.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-c0392b?style=for-the-badge&logo=github)](https://your-username.github.io/the-marquee)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-c0392b?style=for-the-badge&logo=github)](https://ai9an.github.io/marquee/)
 [![TMDB](https://img.shields.io/badge/Powered%20by-TMDB-01b4e4?style=for-the-badge&logo=themoviedatabase&logoColor=white)](https://www.themoviedb.org)
 [![License](https://img.shields.io/badge/License-MIT-d4a017?style=for-the-badge)](LICENSE)
 
